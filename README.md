@@ -67,18 +67,18 @@ We'll make the following additions to the AuthenticateRequestAsyncDelegate argum
 
 1. Create the HttpRequestMessage to request a token for our app.
 
-    HttpRequestMessage httpRequestMessage = new HttpRequestMessage(HttpMethod.Post, getTokenUrl);
-    httpRequestMessage.Content = new StringContent(postBody, Encoding.UTF8, "application/x-www-form-urlencoded");
+        HttpRequestMessage httpRequestMessage = new HttpRequestMessage(HttpMethod.Post, getTokenUrl);
+        httpRequestMessage.Content = new StringContent(postBody, Encoding.UTF8, "application/x-www-form-urlencoded");
 
 2. Create the HttpClient, send the request, and get the HttpResponseMessage.
 
-    HttpClient client = new HttpClient();
-    HttpResponseMessage httpResponseMessage = await client.SendAsync(httpRequestMessage);
+        HttpClient client = new HttpClient();
+        HttpResponseMessage httpResponseMessage = await client.SendAsync(httpRequestMessage);
 
 3. Get the access token from the response and inject the access token into the GraphServiceClient object.
 
-    string responseBody = await httpResponseMessage.Content.ReadAsStringAsync();
-    userToken = JObject.Parse(responseBody).GetValue("access_token").ToString();
-    requestMessage.Headers.Authorization = new AuthenticationHeaderValue("bearer", userToken);
+        string responseBody = await httpResponseMessage.Content.ReadAsStringAsync();
+        userToken = JObject.Parse(responseBody).GetValue("access_token").ToString();
+        requestMessage.Headers.Authorization = new AuthenticationHeaderValue("bearer", userToken);
 
 You can now run this solution. This should leave you with a basic solution that can be modified to be ran as a service.
