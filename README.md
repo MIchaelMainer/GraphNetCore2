@@ -4,6 +4,8 @@ This sample and walkthrough shows how you can use Visual Studio 2017 for Mac to 
 
 > As of the publication of this sample, NetCore 2.0 doesn't have a UI system so it can't provide a UI for user consent.  
 
+Here's a [video walkthrough](https://youtu.be/4s7HKire298) of this sample. 
+
 ## Prerequisites
 * Visual Studio 2017 for Mac. These instructions will also work for Visual Studio 2017 (Windows).
 * An tenant administrator account to provide consent. Get yourself a demo tenant if you haven't already. 
